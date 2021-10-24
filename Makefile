@@ -6,11 +6,11 @@
 #    By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/24 14:55:49 by acoezard          #+#    #+#              #
-#    Updated: 2021/10/24 15:49:23 by acoezard         ###   ########.fr        #
+#    Updated: 2021/10/24 16:55:38 by acoezard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = FdF
+NAME = fdf
 
 SOURCES = ./sources
 
