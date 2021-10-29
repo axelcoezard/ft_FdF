@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_udecimal.c                               :+:      :+:    :+:   */
+/*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/19 13:00:13 by acoezard          #+#    #+#             */
-/*   Updated: 2021/10/27 16:41:24 by acoezard         ###   ########.fr       */
+/*   Created: 2021/10/29 14:48:31 by acoezard          #+#    #+#             */
+/*   Updated: 2021/10/29 14:57:00 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#ifndef FDF_H
+# define FDF_H
 
-int	ft_printf_udecimal(va_list params, t_flags flags)
+# include "../libft/includes/libft.h"
+# include "mlx.h"
+
+struct s_fdf
 {
-	size_t			size;
-	unsigned int	udecimal;
+	void*	mlx;
+	void*	window;
+};
+typedef struct s_fdf	t_fdf;
 
-	(void) flags;
-	size = 0;
-	udecimal = (unsigned int) va_arg(params, unsigned int);
-	ft_putunbr_fd(udecimal, 1);
-	if (udecimal == 0)
-		return (1);
-	while (udecimal != 0)
-	{
-		udecimal /= 10;
-		size++;
-	}
-	return (size);
-}
+#endif
