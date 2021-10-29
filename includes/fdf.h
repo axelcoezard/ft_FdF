@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 14:48:31 by acoezard          #+#    #+#             */
-/*   Updated: 2021/10/29 14:57:00 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/10/29 15:59:15 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include "../libft/includes/libft.h"
 # include "mlx.h"
+
+# define MOUSE_LEFT		1
+# define MOUSE_RIGHT	1
+# define MOUSE_WHEEL	1
 
 struct s_fdf
 {
