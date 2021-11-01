@@ -6,14 +6,27 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 11:41:34 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/01 12:10:41 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/01 12:24:55 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-int	ft_loop_hook(void)
+int	ft_loop_hook(void *param)
 {
+	t_fdf	*fdf;
+
+	fdf = (t_fdf *) param;
+	ft_window_clear(fdf);
+	return (EXIT_SUCCESS);
+}
+
+int	ft_quit_hook(void *param)
+{
+	t_fdf	*fdf;
+
+	fdf = (t_fdf *) param;
+	ft_window_close(fdf);
 	return (EXIT_SUCCESS);
 }
 
@@ -37,9 +50,8 @@ int	ft_mouse_hook(int button, int x, int y, void *param)
 	return (EXIT_SUCCESS);
 }
 
-int	ft_keypress_hook(int keycode, t_fdf* fdf)
+int	ft_key_press_hook(int keycode, t_fdf* fdf)
 {
-	ft_printf("Key pressed: %d\n", keycode);
 	if (keycode == KEY_ESCAPE)
 		ft_window_close(fdf);
 	return (EXIT_SUCCESS);
