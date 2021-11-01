@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   ft_draw.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/29 14:48:18 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/01 12:09:45 by acoezard         ###   ########.fr       */
+/*   Created: 2021/11/01 11:38:49 by acoezard          #+#    #+#             */
+/*   Updated: 2021/11/01 11:39:40 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-int	main(void)
+void	ft_draw_line(t_fdf *fdf, t_vector2 *a, t_vector2 *b, int color)
 {
+	int	i;
+	int dx = b->x - a->x;
+	int dy = b->y - a->y;
 
-	ft_window_open(400, 400);
-
-	return (EXIT_SUCCESS);
+	int steps = abs(dx) > abs(dy) ? abs(dx) : abs(dy);
+	float Xinc = dx / (float) steps;
+	float Yinc = dy / (float) steps;
+	float X = a->x;
+	float Y = a->y;
+	i = 0;
+	while (i <= steps)
+	{
+		mlx_pixel_put(fdf->mlx, fdf->window, X, Y, color);
+		X += Xinc;
+		Y += Yinc;
+		i++;
+    }
 }
-
