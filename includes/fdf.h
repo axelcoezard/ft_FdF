@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 14:48:31 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/01 12:24:37 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/01 12:33:47 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,17 @@ struct s_fdf
 };
 typedef struct s_fdf	t_fdf;
 
-t_fdf	*ft_window_open(int width, int height);
-void	ft_window_clear(t_fdf *fdf);
-void	ft_window_close(t_fdf *fdf);
+t_fdf		*ft_window_open(int width, int height);
+void		ft_window_clear(t_fdf *fdf);
+void		ft_window_close(t_fdf *fdf);
 
-int		ft_loop_hook(void *param);
-int		ft_quit_hook(void *param);
-int		ft_mouse_hook(int button, int x, int y, void *param);
-int		ft_key_press_hook(int keycode, t_fdf* fdf);
+int			ft_loop_hook(void *param);
+int			ft_quit_hook(void *param);
+int			ft_mouse_hook(int button, int x, int y, void *param);
+int			ft_key_press_hook(int keycode, t_fdf* fdf);
 
-void	ft_draw_line(t_fdf *fdf, t_vector2 *a, t_vector2 *b, int color);
+void		ft_draw_line(t_fdf *fdf, t_vector2 *a, t_vector2 *b, int color);
+
+t_vector2	**ft_parser(char *filename);
 
 #endif

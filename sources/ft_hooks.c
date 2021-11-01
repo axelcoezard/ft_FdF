@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 11:41:34 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/01 12:24:55 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/01 12:26:06 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	ft_loop_hook(void *param)
 	t_fdf	*fdf;
 
 	fdf = (t_fdf *) param;
-	ft_window_clear(fdf);
 	return (EXIT_SUCCESS);
 }
 
