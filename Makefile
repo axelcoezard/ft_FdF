@@ -6,7 +6,7 @@
 #    By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 14:02:21 by acoezard          #+#    #+#              #
-#    Updated: 2021/11/01 11:52:51 by acoezard         ###   ########.fr        #
+#    Updated: 2021/11/02 09:58:12 by acoezard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS			:=	fdf.c \
 					ft_draw.c \
 					ft_window.c \
 					ft_hooks.c \
+					ft_projection.c \
 					ft_parser.c
 
 OBJS			:=	$(addprefix ${OBJECTS}/, $(SRCS:.c=.o))
