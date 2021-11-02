@@ -6,13 +6,14 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 14:48:31 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/02 09:54:38 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/02 09:59:08 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
+# include <math.h>
 # include "../libft/includes/libft.h"
 # include "mlx.h"
 
