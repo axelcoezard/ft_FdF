@@ -6,18 +6,21 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 14:48:18 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/02 09:35:32 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/02 14:50:29 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-int	main(void)
+int	main(int ac, char **av)
 {
 	t_fdf *fdf;
 
-	//ft_parser("./maps/10-2.fdf");
-	fdf = ft_window_open(400, 400);
+	(void) ac;
+	fdf = ft_window_open(1280, 720);
+	fdf = ft_camera_init(fdf);
+	fdf = ft_parser(fdf, av[1]);
+	ft_window_loop(fdf, ft_loop_hook);
 	return (EXIT_SUCCESS);
 }
 

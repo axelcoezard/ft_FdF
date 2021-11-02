@@ -6,7 +6,7 @@
 #    By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 14:02:21 by acoezard          #+#    #+#              #
-#    Updated: 2021/11/02 09:59:42 by acoezard         ###   ########.fr        #
+#    Updated: 2021/11/02 11:57:52 by acoezard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,12 +23,14 @@ SRCS			:=	fdf.c \
 					ft_window.c \
 					ft_hooks.c \
 					ft_projection.c \
+					ft_camera.c \
+					ft_map.c \
 					ft_parser.c
 
 OBJS			:=	$(addprefix ${OBJECTS}/, $(SRCS:.c=.o))
 
 CC				:=	gcc
-CFLAGS			:=	-Wall -Wextra -Werror
+CFLAGS			:=	-Wall -Wextra -Werror -g
 CINCLUDES		:=	-I ${INCLUDES}
 CDEPENDENCIES	:=	-L ${LIBFT} -lft -lm -lmlx -framework OpenGL -framework AppKit
 

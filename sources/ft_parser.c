@@ -6,13 +6,48 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 11:32:08 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/01 12:53:40 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/02 14:20:57 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-t_vector2 **ft_parser(char *filename)
+static char	*ft_parser_get_line(int filedesc)
+{
+	char	*line;
+
+	line = ft_get_next_line(filedesc);
+	if (line == NULL)
+		return (NULL);
+	return (ft_strtrim(line, " \n"));
+}
+
+static t_fdf	*ft_parser_get_dimension(char *filename, t_fdf *fdf)
+{
+	int			filedesc;
+	char		*line;
+	char		**line_values;
+
+	filedesc = open(filename, O_RDONLY);
+	if (filedesc > 0)
+	{
+		line = ft_parser_get_line(filedesc);
+		line_values = ft_split(line, ' ');
+		while (line_values[fdf->map->width] != NULL)
+			fdf->map->width++;
+		free(line_values);
+		while (line != NULL)
+		{
+			free(line);
+			line = ft_parser_get_line(filedesc);
+			fdf->map->height++;
+		}
+		close(filedesc);
+	}
+	return (fdf);
+}
+
+t_fdf	*ft_parser(t_fdf *fdf, char *filename)
 {
 	char	*line;
 	char	**points;
@@ -20,10 +55,13 @@ t_vector2 **ft_parser(char *filename)
 	int		y;
 	int		x;
 
+	fdf = ft_map_init(fdf, 0, 0);
+	fdf = ft_parser_get_dimension(filename, fdf);
+	fdf->map = ft_map_init_points(fdf->map);
 	filedesc = open(filename, O_RDONLY);
 	if (filedesc < 1)
 		ft_printf("Error\n");
-	line = ft_get_next_line(filedesc);
+	line = ft_parser_get_line(filedesc);
 	y = 0;
 	while (line != NULL)
 	{
@@ -31,13 +69,12 @@ t_vector2 **ft_parser(char *filename)
 		x = 0;
 		while (points[x] != NULL)
 		{
-			ft_printf("Points x=%d y=%d hauteur=%d\n", x, y, ft_atoi(points[x]));
+			ft_map_set_point(fdf->map, x, y, ft_atoi(points[x]));
 			x++;
 		}
-		line = ft_get_next_line(filedesc);
+		line = ft_parser_get_line(filedesc);
 		y++;
 	}
 	close(filedesc);
-	ft_printf("Shown\n");
-	return (NULL);
+	return (fdf);
 }
