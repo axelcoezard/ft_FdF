@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 15:13:12 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/04 17:39:30 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/04 18:03:17 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	ft_key_press_hook(int keycode, t_fdf *fdf)
 {
 	if (keycode == KEY_ESCAPE)
 		ft_window_close(fdf);
-
 	fdf->keyboard[keycode] = 1;
 	ft_loop_hook(fdf);
 	return (EXIT_SUCCESS);

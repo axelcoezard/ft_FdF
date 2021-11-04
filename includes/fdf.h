@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 14:48:31 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/04 16:57:04 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/04 18:03:42 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ void		ft_window_close(t_fdf *fdf);
 int			ft_loop_hook(t_fdf *fdf);
 int			ft_quit_hook(t_fdf *fdf);
 int			ft_mouse_hook(int button, int x, int y, t_fdf *fdf);
-int			ft_key_press_hook(int keycode, t_fdf* fdf);
-int			ft_key_release_hook(int keycode, t_fdf* fdf);
+int			ft_key_press_hook(int keycode, t_fdf *fdf);
+int			ft_key_release_hook(int keycode, t_fdf *fdf);
 int			ft_mouse_press_hook(int button, int x, int y, t_fdf *fdf);
 int			ft_mouse_release_hook(int button, int x, int y, t_fdf *fdf);
 int			ft_mouse_move_hook(int x, int y, t_fdf *fdf);
