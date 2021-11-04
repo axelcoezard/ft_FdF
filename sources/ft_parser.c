@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 11:32:08 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/02 14:20:57 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/04 17:32:45 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,9 @@ t_fdf	*ft_parser(t_fdf *fdf, char *filename)
 	while (line != NULL)
 	{
 		points = ft_split(line, ' ');
-		x = 0;
-		while (points[x] != NULL)
-		{
+		x = -1;
+		while (points[++x] != NULL)
 			ft_map_set_point(fdf->map, x, y, ft_atoi(points[x]));
-			x++;
-		}
 		line = ft_parser_get_line(filedesc);
 		y++;
 	}

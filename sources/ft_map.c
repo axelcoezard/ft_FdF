@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 11:03:25 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/02 14:22:43 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/04 17:22:09 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_map	*ft_map_init_points(t_map *map)
 
 t_map	*ft_map_set_point(t_map *map, int x, int y, int height)
 {
-	t_vector3	 *point;
+	t_vector3	*point;
 
 	point = ft_vector3_init(x, y, height);
 	map->points[x + y * map->width] = point;
