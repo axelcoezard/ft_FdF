@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 11:41:34 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/05 16:12:51 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/05 16:17:22 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static void	ft_loop_show_data(t_fdf *fdf)
 	ft_draw_integer(fdf, 80, 40, fdf->camera->x);
 	ft_draw_text(fdf, 20, 60, "Y:");
 	ft_draw_integer(fdf, 80, 60, fdf->camera->y);
+	ft_draw_text(fdf, 20, 680, "[Esc] pour quitter.");
 }
 
 int	ft_loop_hook(t_fdf *fdf)
