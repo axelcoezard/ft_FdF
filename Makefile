@@ -6,7 +6,7 @@
 #    By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 14:02:21 by acoezard          #+#    #+#              #
-#    Updated: 2021/11/04 16:14:12 by acoezard         ###   ########.fr        #
+#    Updated: 2021/11/05 15:24:54 by acoezard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRCS			:=	fdf.c \
 					ft_projection.c \
 					ft_camera.c \
 					ft_map.c \
-					ft_parser.c
+					ft_parser.c \
+					ft_check.c
 
 OBJS			:=	$(addprefix ${OBJECTS}/, $(SRCS:.c=.o))
 

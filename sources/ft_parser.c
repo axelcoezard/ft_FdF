@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 11:32:08 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/05 15:17:13 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/05 15:50:29 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static t_fdf	*ft_parser_file(t_fdf *fdf, int filedesc)
 
 int	ft_parser(t_fdf *fdf, char *filename)
 {
-	int	filedesc;
+	int		filedesc;
 
 	fdf = ft_map_init(fdf, 0, 0);
 	fdf = ft_parser_get_dimension(filename, fdf);

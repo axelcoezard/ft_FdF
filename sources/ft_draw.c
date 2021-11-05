@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 11:38:49 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/05 14:28:54 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/05 16:09:48 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,15 @@ void	ft_draw_line(t_fdf *fdf, t_vector2 *a, t_vector2 *b, int color)
 void	ft_draw_text(t_fdf *fdf, int x, int y, char *text)
 {
 	mlx_string_put(fdf->mlx, fdf->window, x, y, 0x1e3799, text);
+}
+
+void	ft_draw_integer(t_fdf *fdf, int x, int y, int i)
+{
+	char *n;
+
+	n = ft_itoa(i);
+	mlx_string_put(fdf->mlx, fdf->window, x, y, 0x8c7ae6, n);
+	free(n);
 }
 
 void	ft_draw_projection(t_fdf *fdf, int x, int y, int drawcode)

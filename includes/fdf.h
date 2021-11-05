@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 14:48:31 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/05 15:20:36 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/05 16:10:05 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ int			ft_mouse_release_hook(int button, int x, int y, t_fdf *fdf);
 int			ft_mouse_move_hook(int x, int y, t_fdf *fdf);
 
 void		ft_draw_text(t_fdf *fdf, int x, int y, char *text);
+void		ft_draw_integer(t_fdf *fdf, int x, int y, int i);
 void		ft_draw_projection(t_fdf *fdf, int x, int y, int drawcode);
 void		ft_draw_pixel(t_fdf *fdf, int x, int y, int color);
 void		ft_draw_line(t_fdf *fdf, t_vector2 *a, t_vector2 *b, int color);

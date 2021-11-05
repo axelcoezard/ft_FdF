@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 14:48:18 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/05 15:15:50 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/05 15:53:29 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 int static	ft_throw_error(void)
 {
 	ft_printf("Error.\n");
+	return (EXIT_FAILURE);
+}
+
+int static	ft_throw_usage(void)
+{
+	ft_printf("Usage: ./fdf [filename]\n");
 	return (EXIT_FAILURE);
 }
 
@@ -35,5 +41,6 @@ int	main(int ac, char **av)
 		ft_window_loop(fdf, ft_loop_hook);
 		return (EXIT_SUCCESS);
 	}
-	return (ft_throw_error());
+	ft_throw_error();
+	return (ft_throw_usage());
 }
