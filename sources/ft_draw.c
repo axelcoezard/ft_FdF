@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 11:38:49 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/04 18:03:07 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/05 14:28:54 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	ft_draw_line(t_fdf *fdf, t_vector2 *a, t_vector2 *b, int color)
 	}
 	free(a);
 	free(b);
+	free(delta);
 }
 
 void	ft_draw_text(t_fdf *fdf, int x, int y, char *text)

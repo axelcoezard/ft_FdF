@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 11:32:44 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/04 17:17:37 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/05 15:15:35 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,16 @@ void	ft_window_clear(t_fdf *fdf, int color)
 
 void	ft_window_close(t_fdf *fdf)
 {
+	int		x;
+
 	if (fdf != NULL)
 	{
+		x = fdf->map->width * fdf->map->height - 1;
 		mlx_destroy_window(fdf->mlx, fdf->window);
+		while (x >= 0)
+			free(fdf->map->points[x--]);
+		free(fdf->map->points);
+		free(fdf->map);
 		free(fdf->camera);
 		free(fdf);
 		exit(EXIT_SUCCESS);

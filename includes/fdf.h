@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 14:48:31 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/04 18:03:42 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/05 15:20:36 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void		ft_draw_pixel(t_fdf *fdf, int x, int y, int color);
 void		ft_draw_line(t_fdf *fdf, t_vector2 *a, t_vector2 *b, int color);
 t_vector2	*ft_projection(t_vector3 *vector, t_fdf *fdf);
 
-t_fdf		*ft_camera_init(t_fdf *fdf);
+int			ft_camera_init(t_fdf *fdf);
 t_camera	*ft_camera_move(t_camera *camera, int x, int y);
 t_camera	*ft_camera_rotate(t_camera *camera, float a, float b, float g);
 t_camera	*ft_camera_zoom(t_camera *camera, int zoom);
@@ -110,6 +110,6 @@ t_map		*ft_map_init_points(t_map *map);
 t_map		*ft_map_set_point(t_map *map, int x, int y, int height);
 t_vector3	*ft_map_get_point(t_map *map, int x, int y);
 
-t_fdf		*ft_parser(t_fdf *fdf, char *filename);
+int			ft_parser(t_fdf *fdf, char *filename);
 
 #endif

@@ -6,30 +6,33 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 11:47:53 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/04 17:20:37 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/05 15:22:57 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-t_fdf	*ft_camera_init(t_fdf *fdf)
+int	ft_camera_init(t_fdf *fdf)
 {
+	double	w;
+	double	h;
+
 	fdf->camera = (t_camera *) malloc(sizeof(t_camera));
+	if (fdf->camera == NULL)
+		return (0);
+	w = fdf->width / fdf->map->width;
+	h = fdf->height / fdf->map->height;
 	fdf->camera->x = fdf->width / 2;
 	fdf->camera->y = fdf->height / 2;
-	fdf->camera->zoom = 1;
+	fdf->camera->zoom = ft_min(w, h);
 	fdf->camera->alpha = 0;
 	fdf->camera->beta = 0;
 	fdf->camera->gamma = 0;
-	return (fdf);
+	return (1);
 }
 
 void	ft_camera_controls(t_fdf *fdf)
 {
-	if (fdf->buttons[MOUSE_SCROLL_DOWN])
-		ft_camera_zoom(fdf->camera, 1);
-	if (fdf->buttons[MOUSE_SCROLL_UP])
-		ft_camera_zoom(fdf->camera, -1);
 	if (fdf->keyboard[KEY_LEFT] || fdf->keyboard[KEY_A])
 		ft_camera_move(fdf->camera, -10, 0);
 	if (fdf->keyboard[KEY_RIGHT] || fdf->keyboard[KEY_D])
@@ -57,6 +60,7 @@ t_camera	*ft_camera_rotate(t_camera *camera, float a, float b, float g)
 
 t_camera	*ft_camera_zoom(t_camera *camera, int zoom)
 {
-	camera->zoom += zoom;
+	if (camera->zoom + zoom > 0)
+		camera->zoom += zoom;
 	return (camera);
 }
