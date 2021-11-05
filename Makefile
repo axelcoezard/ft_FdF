@@ -6,7 +6,7 @@
 #    By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 14:02:21 by acoezard          #+#    #+#              #
-#    Updated: 2021/11/05 16:33:10 by acoezard         ###   ########.fr        #
+#    Updated: 2021/11/05 16:37:10 by acoezard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,9 +49,9 @@ ${OBJECTS}/%.o: ${SOURCES}/%.c
 	@echo "● Compilation de "$(BLUE)"${notdir $<}"$(EOC)"."
 	@${CC} ${CFLAGS} -o $@ -c $< ${CINCLUDES}
 
-all: ${NAME}
+all: libft ${NAME}
 
-${NAME}: libft ${OBJS}
+${NAME}: ${OBJS}
 	@echo $(GREEN)"● Compilation de ${NAME}..."$(EOC)
 	@${CC} ${CFLAGS} -o ${NAME} ${CDEPENDENCIES} ${OBJS}
 
