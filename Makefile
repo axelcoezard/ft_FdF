@@ -6,7 +6,7 @@
 #    By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 14:02:21 by acoezard          #+#    #+#              #
-#    Updated: 2021/11/08 11:38:31 by acoezard         ###   ########.fr        #
+#    Updated: 2021/11/08 12:54:50 by acoezard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ LIBFT			:=	./libft
 SRCS			:=	fdf.c \
 					ft_draw.c \
 					ft_window.c \
+					ft_controllers.c \
 					ft_hooks.c \
 					ft_projection.c \
 					ft_camera.c \

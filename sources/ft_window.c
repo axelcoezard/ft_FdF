@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 11:32:44 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/08 10:24:38 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/08 12:55:24 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ t_fdf	*ft_window_open(int width, int height)
 	fdf->window = mlx_new_window(fdf->mlx, width, height, "FdF");
 	fdf->image = mlx_new_image(fdf->mlx, width, height);
 	fdf->buffer = (int *) mlx_get_data_addr(fdf->image, &n, &n, &n);
+	mlx_hook(fdf->window, 2, 1L << 0, ft_key_press_hook, fdf);
 	mlx_hook(fdf->window, 17, 0L, ft_quit_hook, fdf);
 	return (fdf);
 }
