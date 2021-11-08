@@ -6,13 +6,12 @@
 #    By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 14:02:21 by acoezard          #+#    #+#              #
-#    Updated: 2021/11/05 16:37:10 by acoezard         ###   ########.fr        #
+#    Updated: 2021/11/08 11:38:31 by acoezard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			:=	fdf
 
-SOURCES			:=	./sources
 OBJECTS			:=	./bin
 INCLUDES		:=	./includes
 
@@ -21,15 +20,29 @@ LIBFT			:=	./libft
 SRCS			:=	fdf.c \
 					ft_draw.c \
 					ft_window.c \
-					ft_controllers.c \
 					ft_hooks.c \
 					ft_projection.c \
 					ft_camera.c \
 					ft_map.c \
-					ft_parser.c \
-					ft_check.c
+					ft_parser.c
 
+B_SRCS			:=	fdf_bonus.c \
+					ft_draw_bonus.c \
+					ft_window_bonus.c \
+					ft_controllers_bonus.c \
+					ft_hooks_bonus.c \
+					ft_projection_bonus.c \
+					ft_camera_bonus.c \
+					ft_map_bonus.c \
+					ft_parser_bonus.c
+
+ifndef BONUS
+SOURCES			:=	./sources
 OBJS			:=	$(addprefix ${OBJECTS}/, $(SRCS:.c=.o))
+else
+SOURCES		:=	./sources_bonus
+OBJS			:=	$(addprefix ${OBJECTS}/, $(B_SRCS:.c=.o))
+endif
 
 CC				:=	gcc
 CFLAGS			:=	-Wall -Wextra -Werror -g
@@ -49,15 +62,15 @@ ${OBJECTS}/%.o: ${SOURCES}/%.c
 	@echo "● Compilation de "$(BLUE)"${notdir $<}"$(EOC)"."
 	@${CC} ${CFLAGS} -o $@ -c $< ${CINCLUDES}
 
-all: libft ${NAME}
+all: ${NAME}
+
+bonus:
+	@make BONUS=1 ${NAME}
 
 ${NAME}: ${OBJS}
+	@make -C ${LIBFT}
 	@echo $(GREEN)"● Compilation de ${NAME}..."$(EOC)
 	@${CC} ${CFLAGS} -o ${NAME} ${CDEPENDENCIES} ${OBJS}
-
-libft:
-	@echo $(GREEN)"● Compilation des sources de la Libft..."$(EOC)
-	@make -C ${LIBFT}
 
 clean:
 	@echo ${GREEN}"● Supression des fichiers binaires (.o)..."$(EOC)
@@ -71,4 +84,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY:	all libft clean fclean re
+.PHONY:	all bonus clean fclean re

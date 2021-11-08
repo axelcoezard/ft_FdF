@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 11:32:44 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/08 10:24:38 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/05 15:15:35 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@ t_fdf	*ft_window_open(int width, int height)
 	fdf->window = mlx_new_window(fdf->mlx, width, height, "FdF");
 	fdf->image = mlx_new_image(fdf->mlx, width, height);
 	fdf->buffer = (int *) mlx_get_data_addr(fdf->image, &n, &n, &n);
+	n = 0;
+	while (n < 256)
+		fdf->keyboard[n++] = 0;
+	mlx_hook(fdf->window, 2, 1L << 0, ft_key_press_hook, fdf);
+	mlx_hook(fdf->window, 3, 1L << 1, ft_key_release_hook, fdf);
+	mlx_hook(fdf->window, 4, 1L << 2, ft_mouse_press_hook, fdf);
+	mlx_hook(fdf->window, 5, 1L << 3, ft_mouse_release_hook, fdf);
+	mlx_hook(fdf->window, 6, 1L << 6, ft_mouse_move_hook, fdf);
 	mlx_hook(fdf->window, 17, 0L, ft_quit_hook, fdf);
 	return (fdf);
 }

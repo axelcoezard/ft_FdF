@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_controllers.c                                   :+:      :+:    :+:   */
+/*   ft_controllers_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 15:13:12 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/04 18:03:17 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/08 11:44:38 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	ft_mouse_move_hook(int x, int y, t_fdf *fdf)
 	{
 		alpha = (x - fdf->prev_x) * 0.002;
 		beta = (y - fdf->prev_y) * 0.002;
-		ft_camera_rotate(fdf->camera, 0, 0, alpha);
+		ft_camera_rotate(fdf->camera, beta, 0, alpha);
 		ft_loop_hook(fdf);
 	}
 	return (EXIT_SUCCESS);

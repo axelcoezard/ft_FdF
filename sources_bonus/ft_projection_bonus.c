@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_projection.c                                    :+:      :+:    :+:   */
+/*   ft_projection_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 09:37:20 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/08 10:58:14 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/08 10:58:46 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,9 @@ t_vector2	*ft_projection(t_vector3 *vector, t_fdf *fdf)
 	x = (vector->x - map->width / 2) * camera->zoom;
 	y = (vector->y - map->height / 2) * camera->zoom;
 	save = ft_vector3_init(x, y, vector->z * camera->zoom);
+	save = ft_rotate_x(save, camera->alpha);
+	save = ft_rotate_y(save, camera->beta);
+	save = ft_rotate_z(save, camera->gamma);
 	x = camera->x + (save->x - save->y) * cos(0.523599);
 	y = camera->y + (save->x + save->y) * sin(0.523599) - save->z;
 	free(save);

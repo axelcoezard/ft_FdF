@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_draw.c                                          :+:      :+:    :+:   */
+/*   ft_draw_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 11:38:49 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/08 10:23:36 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/08 11:43:34 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,20 @@ void	ft_draw_line(t_fdf *fdf, t_vector2 *a, t_vector2 *b, int color)
 	free(a);
 	free(b);
 	free(delta);
+}
+
+void	ft_draw_text(t_fdf *fdf, int x, int y, char *text)
+{
+	mlx_string_put(fdf->mlx, fdf->window, x, y, 0x1e3799, text);
+}
+
+void	ft_draw_integer(t_fdf *fdf, int x, int y, int i)
+{
+	char	*n;
+
+	n = ft_itoa(i);
+	mlx_string_put(fdf->mlx, fdf->window, x, y, 0x8c7ae6, n);
+	free(n);
 }
 
 void	ft_draw_projection(t_fdf *fdf, int x, int y, int drawcode)
